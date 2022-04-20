@@ -8,24 +8,20 @@ include Capybara::DSL
     end
 
     def escolhe_produto
-            find('#ui-id-4').hover
-            sleep 2
-            find('#ui-id-16').hover
-            sleep 2
-            find('#ui-id-20').click
-            sleep 2
-            click_link('Helios EverCool™ Tee')
+        wait 5.seconds until find('#ui-id-4').hover
+        wait 5.seconds until find('#ui-id-16').hover
+        wait 5.seconds until find('#ui-id-20').click
+        wait 5.seconds until click_link('Helios EverCool™ Tee')
     end
 
 
     def adiciono_carrinho
-            find('#option-label-size-144-item-168').click
-            find('#option-label-color-93-item-49').click
-            click_button 'Add to Cart'
+        wait 5.seconds until find('#option-label-size-144-item-168').click
+        wait 5.seconds until find('#option-label-color-93-item-49').click
+        click_button 'Add to Cart'
     end
 
     def recebo_mensagem(mensagem)
-        sleep 10
-        assert_text(mensagem)
+        wait 10.seconds until assert_text(mensagem)
     end
 end
